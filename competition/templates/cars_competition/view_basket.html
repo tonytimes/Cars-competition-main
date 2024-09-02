@@ -1,0 +1,28 @@
+<h1>Your Basket</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Car Model</th>
+            <th>Number of Tickets</th>
+            <th>Price per Ticket</th>
+            <th>Total Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in basket_items %}
+        <tr>
+            <td>{{ item.competition.car_model }}</td>
+            <td>{{ item.ticket_count }}</td>
+            <td>{{ item.competition.ticket_price }}</td>
+            <td>{{ item.competition.ticket_price|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3">Total Cost</td>
+            <td>{{ total_cost|floatformat:2 }}</td>
+        </tr>
+    </tbody>
+</table>
+<a href="{% url 'check_out'%}">Proceed to Checkout</a>
+<a href="{% url 'competitions' %}">return to competitions</a>
+

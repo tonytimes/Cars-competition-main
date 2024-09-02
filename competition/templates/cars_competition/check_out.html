@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pay Here</title>
+</head>
+<body>
+<h1>Make a Payment</h1>
+
+<form method="post" action="{% url 'stk' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="number" id="phone" name="phone" value="254" required="required" placeholder="Enter your phone number">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="amount">Amount:</label>
+        <p>{{ Amount }}</p>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">PAY</button>
+</form>
+
+</body>
+</html>
